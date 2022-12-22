@@ -10,4 +10,4 @@ play(player, mrugesh, 1000)
 # play(human, player, 20, verbose=True)
 
 # Uncomment line below to play against a bot that plays randomly:
-# play(human, random_player, 1000)
+# play(player, random_player, 1000)
