@@ -50,10 +50,11 @@ def player_v2(prev_play, opponent_history=[], my_history=['']):
   opponent_history.append(prev_play)
 
   # level of insight
-  level = 7
+  level = 12
   # Predict opponent's next move
+  match = 0
   for pattern_len in range(level, 1, -1):
-    for i in range(len(opponent_history)):
+    for i in range(len(opponent_history) - 1, 0, -1):
       match = 0
       for j in range(pattern_len):
         if i - j > 0 and opponent_history[-1] == opponent_history[i]:
@@ -61,7 +62,7 @@ def player_v2(prev_play, opponent_history=[], my_history=['']):
             if my_history[-1 - j] == my_history[i - j]:
               match += 1
       if match >= pattern_len and i + 2 <= len(opponent_history):
-        predict = opponent_history[i+1]
+        predict = opponent_history[i + 1]
         break
     if match >= pattern_len and i + 2 <= len(opponent_history):
       break
@@ -78,3 +79,12 @@ def player_v2(prev_play, opponent_history=[], my_history=['']):
   my_history.append(guess)
   
   return guess
+
+
+def player_rps(prev_play, my_prev_play = "R"):
+  if my_prev_play == "R":
+    return "P"
+  if my_prev_play == "P":
+    return "S"
+  if my_prev_play == "S":
+    return "R"
