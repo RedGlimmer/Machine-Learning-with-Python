@@ -1,10 +1,20 @@
 from RPS_game import play, mrugesh, abbey, quincy, kris, human, random_player
-from RPS import player
+from RPS import player, player_v2
 
+print("Player:")
 play(player, quincy, 1000)
 play(player, abbey, 1000)
 play(player, kris, 1000)
 play(player, mrugesh, 1000)
+
+print("\nPlayer_v2:")
+play(player_v2, quincy, 1000)
+play(player_v2, abbey, 1000)
+play(player_v2, kris, 1000)
+play(player_v2, mrugesh, 1000)
+
+print("\nplayer_v2 vs player:")
+play(player_v2, player, 1000)
 
 # Uncomment line below to play interactively against a bot:
 # play(human, player, 20, verbose=True)
