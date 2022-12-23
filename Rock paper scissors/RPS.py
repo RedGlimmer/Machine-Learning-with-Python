@@ -2,6 +2,10 @@ def player(prev_play, opponent_history=[], my_history=['']):
   guess = "S"
   predict = None
 
+  if len(opponent_history) > 500:
+    del opponent_history[0]
+    del my_history[0]
+
   # Opponent moves history
   opponent_history.append(prev_play)
 
@@ -33,11 +37,14 @@ def player(prev_play, opponent_history=[], my_history=['']):
 
 def player_v2(prev_play, opponent_history=[], my_history=['']):
   guess = "S"
-  
-  if len(opponent_history) > 2:
-    guess = opponent_history[-2]
-
   predict = None
+  
+  if len(opponent_history) > 500:
+    del opponent_history[0]
+    del my_history[0]
+
+  if len(opponent_history) > 2:
+    guess = opponent_history[-2]  
 
   # Opponent moves history
   opponent_history.append(prev_play)
