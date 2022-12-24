@@ -81,10 +81,12 @@ def player_v2(prev_play, opponent_history=[], my_history=['']):
   return guess
 
 
-def player_rps(prev_play, my_prev_play = "R"):
-  if my_prev_play == "R":
+def player_rps(prev_play, my_history=['']):
+  if my_history[-1] == "R":
+    my_history.append("P")
     return "P"
-  if my_prev_play == "P":
+  if my_history[-1] == "P":
+    my_history.append("S")
     return "S"
-  if my_prev_play == "S":
-    return "R"
+  my_history.append("R")
+  return "R"
